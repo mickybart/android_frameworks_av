@@ -89,6 +89,10 @@ LOCAL_C_INCLUDES += \
 LOCAL_EXPORT_C_INCLUDE_DIRS := \
     frameworks/av/services/camera/libcameraservice
 
+ifeq ($(TARGET_NEEDS_METADATA_CAMERA_SOURCE),true)
+LOCAL_CFLAGS += -DMETADATA_CAMERA_SOURCE
+endif
+
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 ifeq ($(TARGET_HAS_LEGACY_CAMERA_HAL1),true)
